@@ -16,9 +16,6 @@ class Triangle {
   private side1Angle: number = -1
   private side2Angle: number = -1
   private side3Angle: number = -1
-  private side1Radian: number = -1
-  private side2Radian: number = -1
-  private side3Radian: number = -1
   private radian: number[] = []
   public numRadian: number = -1
   public type: string = ''
@@ -111,27 +108,24 @@ class Triangle {
   public angle (angleNumber: number): number {
     if (this.isValid() === true) {
       this.side1Angle = Math.acos(
-        ((Math.pow(this.side2, 2) +
+        (Math.pow(this.side2, 2) +
           Math.pow(this.side3, 2) -
           Math.pow(this.side1, 2)) /
-          (2 * this.side2 * this.side3))
+          (2 * this.side2 * this.side3)
       )
       this.side2Angle = Math.acos(
-        ((Math.pow(this.side1, 2) +
+        (Math.pow(this.side1, 2) +
           Math.pow(this.side3, 2) -
           Math.pow(this.side2, 2)) /
-          (2 * this.side1 * this.side3))
+          (2 * this.side1 * this.side3)
       )
       this.side3Angle = Math.acos(
-        ((Math.pow(this.side1, 2) +
+        (Math.pow(this.side1, 2) +
           Math.pow(this.side2, 2) -
           Math.pow(this.side3, 2)) /
-          (2 * this.side1 * this.side2))
+          (2 * this.side1 * this.side2)
       )
-      this.side1Radian = (this.side1Angle * Math.PI) / 180
-      this.side2Radian = (this.side2Angle * Math.PI) / 180
-      this.side3Radian = (this.side3Angle * Math.PI) / 180
-      this.radian = [this.side1Radian, this.side2Radian, this.side3Radian, -1]
+      this.radian = [this.side1Angle, this.side2Angle, this.side3Angle, -1]
       if (angleNumber === 1) {
         this.numRadian = this.radian[0]
       } else if (angleNumber === 2) {
