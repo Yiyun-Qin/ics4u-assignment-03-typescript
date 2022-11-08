@@ -56,17 +56,16 @@ class Triangle {
   /**
    * The perimeter() method, calculates the perimeter of the triangle
    *
-   * @returns {number} numSemiperimeter Half of the perimeter
    */
   private perimeter (): void {
     this.numPerimeter = this.side1 + this.side2 + this.side3
   }
 
   // The semiPerimeter() method
-  public semiPerimeter(): number {
+  public semiPerimeter (): number {
     this.perimeter()
     this.numSemiperimeter = this.numPerimeter / 2
-    if (this.isValid() === true) {
+    if (this.isValid()) {
       return this.numSemiperimeter
     } else {
       return -1
@@ -91,7 +90,7 @@ class Triangle {
 
   // area() method, calculate area
   public area (): number {
-    if (this.isValid() === true) {
+    if (this.isValid()) {
       this.numArea = Math.sqrt(
         this.numSemiperimeter *
           (this.numSemiperimeter - this.side1) *
@@ -106,7 +105,7 @@ class Triangle {
 
   // angle() method, calculate angle
   public angle (angleNumber: number): number {
-    if (this.isValid() === true) {
+    if (this.isValid()) {
       this.side1Angle = Math.acos(
         (Math.pow(this.side2, 2) +
           Math.pow(this.side3, 2) -
@@ -146,7 +145,7 @@ class Triangle {
     const right1 = Math.sqrt(Math.pow(this.side2, 2) + Math.pow(this.side3, 2))
     const right2 = Math.sqrt(Math.pow(this.side1, 2) + Math.pow(this.side3, 2))
     const right3 = Math.sqrt(Math.pow(this.side1, 2) + Math.pow(this.side2, 2))
-    if (this.isValid() === true) {
+    if (this.isValid()) {
       if (this.side1 === this.side2 && this.side2 === this.side3) {
         this.type = 'equilateral triangle'
       } else if (
@@ -172,7 +171,7 @@ class Triangle {
 
   // height() method, calculates height
   public height (heightNumber: number): number {
-    if (this.isValid() === true) {
+    if (this.isValid()) {
       this.height1 = this.numArea * 2 / this.side1
       this.height2 = this.numArea * 2 / this.side2
       this.height3 = this.numArea * 2 / this.side3
@@ -194,7 +193,7 @@ class Triangle {
 
   // innerCircleRadius() method
   public innerCircleRadius (): number {
-    if (this.isValid() === true) {
+    if (this.isValid()) {
       this.numInnerCircleRadius = this.numArea / this.numSemiperimeter
       return this.numInnerCircleRadius
     } else {
@@ -204,7 +203,7 @@ class Triangle {
 
   // circumsicleRadius() method
   public circumsicleRadius (): number {
-    if (this.isValid() === true) {
+    if (this.isValid()) {
       this.numCircumsicleRadius = this.side1 / (2 * Math.sin(this.side1Angle))
       return this.numCircumsicleRadius
     } else {
